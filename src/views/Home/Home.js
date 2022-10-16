@@ -10,9 +10,8 @@ const Home = (props) => {
                 <Row>
                 {props.articleList.map((article)=>{
                     return( 
-                        <Col className='mainCards' key={article._id}>
+                        
                             <CardsMainArticle dataArticle={article} />
-                        </Col>
                     )
                 })}
                 </Row>

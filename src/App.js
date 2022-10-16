@@ -7,29 +7,52 @@ import { useEffect, useState } from "react";
 import _strNoAccent from "./utils/strNoAccent";
 import NavBar from './components/BarNav/BarNav'
 import Footer from "./components/Footer/Footer";
-import DynamicArticle from "./components/DynamicArticle/DynamicArticle";
+import TagManager from 'react-ga'
+import DynamicArticleView from "./views/DynamicArticle/DynamicArticleView";
 
 
 function App() {
+
   const [route, setRoute] = useState([])
   const [articleList, setArticleList] = useState([])
+
+
   useEffect(() => {
+    TagManager.initialize('UA-245616455-1',{
+      debug: false,
+      titleCase: false,
+      gaOptions: {
+        userId: 123,
+        siteSpeedSampleRate: 100
+      },
+    });
+
+
+    TagManager.pageview(window.location.pathname + window.location.search);
+
+    TagManager.event({
+      category: 'Promotion',
+      action: 'Displayed Promotional Widget',
+      label: 'Homepage Thing',
+    });
     getRoute();
     getArticle();
   }, []);
+
   const getRoute = () => {
     _get("get", "api/categorie", "", "", "").then((res) => {
       setRoute(res.data)
     });
   };
+
   const getArticle = ()=>{
     _get('get', 'api/article', '', '', '')
     .then((res)=>{
       setArticleList(res.data)
     })
-}
+  }
 
-  const clear = (str) => {
+  const clearStr = (str) => {
     str = _strNoAccent(str)
     str = str.split(' ').join('_').toLowerCase();
     return str
@@ -44,16 +67,17 @@ function App() {
           if (e.categorie_type.length !== 0) {
             return e.categorie_type.map((e)=>{
               return(
-                <Route key={e._id} path={`/${clear(e.name_type)}`} element={<DynamicView route={clear(e.name_type)} Title={e.name_type} Components={clear(e.name_type)} articleList={articleList}/>} />  
+                <Route key={e._id} path={`/${clearStr(e.name_type)}`} element={<DynamicView route={clearStr(e.name_type)} Title={e.name_type} Components={clearStr(e.name_type)} articleList={articleList}/>} />  
               )
             })
           }else{
-            return <Route key={e._id} path={`/${clear(e.categorie_name)}`} element={<DynamicView route={clear(e.categorie_name)} Title={e.categorie_name} Components={clear(e.categorie_name)} articleList={articleList}/>} />  
+            return <Route key={e._id} path={`/${clearStr(e.categorie_name)}`} element={<DynamicView route={clearStr(e.categorie_name)} Title={e.categorie_name} Components={clearStr(e.categorie_name)} articleList={articleList}/>} />  
           }
         })}
         {articleList.map((e)=>{
-              return <Route key={e._id} path={`/article/${e._id}`} element={<DynamicArticle _id={e._id} article={e}/>} />  
+              return <Route key={e._id} path={`/article/${e._id}`} element={<DynamicArticleView _id={e._id} article={e}/>} />  
         })}
+
       </Routes>
       <Footer route={route}></Footer>
     </div>

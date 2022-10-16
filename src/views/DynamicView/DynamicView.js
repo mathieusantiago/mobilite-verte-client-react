@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Container, Row } from "react-bootstrap";
 import DynamicCards from "../../components/DynamicCards/DynamicCards";
+import TagManager from 'react-ga'
 
 const DynamicView = (props) => {
+    useEffect(()=>{
+        TagManager.pageview(window.location.pathname + window.location.search);
+    })
     if(props.Components === props.route){
         return (
             <div className='mb-5'>
