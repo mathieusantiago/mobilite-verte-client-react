@@ -1,0 +1,8 @@
+.cardBrand{
+    width: 180px;
+}
+
+.cardBrand:hover{
+    cursor: pointer;
+    scale: 105%;
+}

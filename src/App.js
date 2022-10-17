@@ -9,12 +9,17 @@ import NavBar from './components/BarNav/BarNav'
 import Footer from "./components/Footer/Footer";
 import TagManager from 'react-ga'
 import DynamicArticleView from "./views/DynamicArticle/DynamicArticleView";
+import ViewCardsSheetBrand from "./views/ViewCardsSheet/ViewCardsSheetBrand";
+import ViewCardsSheetEngine from "./views/ViewCardsSheet/ViewCardsSheetEngine";
+import ViewCardsSheetModel from "./views/ViewCardsSheet/ViewCardsSheetModel";
+import DynamicSheet from "./views/DynamicSheet/DynamicSheet";
 
 
 function App() {
 
   const [route, setRoute] = useState([])
   const [articleList, setArticleList] = useState([])
+  const [sheetBrand, setSheetBrand] = useState([])
 
 
   useEffect(() => {
@@ -37,6 +42,7 @@ function App() {
     });
     getRoute();
     getArticle();
+    getSheetBrand();
   }, []);
 
   const getRoute = () => {
@@ -52,6 +58,13 @@ function App() {
     })
   }
 
+  const getSheetBrand = ()=>{
+    _get('get', 'api/fieldBrand', '', '', '')
+    .then((res)=>{
+      setSheetBrand(res.data)
+    })
+  }
+
   const clearStr = (str) => {
     str = _strNoAccent(str)
     str = str.split(' ').join('_').toLowerCase();
@@ -63,6 +76,9 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<Home articleList={articleList}/>} />
+        <Route path="/cards/sheet/brand" element={<ViewCardsSheetBrand/>} />
+        <Route path="/cards/sheet/model" element={<ViewCardsSheetModel/>} />
+        <Route path="/cards/sheet/engine" element={<ViewCardsSheetEngine/>} />
         {route.map((e)=>{
           if (e.categorie_type.length !== 0) {
             return e.categorie_type.map((e)=>{
@@ -77,9 +93,11 @@ function App() {
         {articleList.map((e)=>{
               return <Route key={e._id} path={`/article/${e._id}`} element={<DynamicArticleView _id={e._id} article={e}/>} />  
         })}
-
+        {sheetBrand.map((e)=>{
+            return <Route key={e._id} path={`/sheet/brand/${e._id}`} element={<DynamicSheet _id={e._id} datas={e}/>} />  
+        })}
       </Routes>
-      <Footer route={route}></Footer>
+      {/* <Footer route={route}></Footer> */}
     </div>
   );
 }

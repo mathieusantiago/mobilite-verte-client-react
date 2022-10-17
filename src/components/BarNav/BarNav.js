@@ -70,6 +70,27 @@ const BarNav = () => {
                   }
                 }
               })}
+              <NavDropdown
+                title='Dossier'
+                id="basic-nav-dropdown"
+                className="ms-4 me-4"
+              >
+                <NavDropdown.Item>
+                  <Link className='barNav-link' to="/cards/sheet/brand">
+                    Fiches marques
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className='barNav-link' to="/cards/sheet/model">
+                    Fiches models
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className='barNav-link' to="/cards/sheet/engine">
+                    Fiches energies
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
