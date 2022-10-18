@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import _get from "../../utils/dataUtils";
 import dompurify from "../../utils/dompurify";
+import './DynamicArticle.css'
 const DynamicArticle = (props) => {
     const [author, setAuthor] = useState('')
     useEffect(()=>{
@@ -41,7 +42,7 @@ const DynamicArticle = (props) => {
 
     return (
         <>
-            <Container className="bg-light">
+            <Container className="bg-light compet">
                 <Row>
                     <Col>
                         <div className="mt-2  rounded p-3 previewArticle">

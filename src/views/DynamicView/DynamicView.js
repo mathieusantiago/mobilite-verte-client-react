@@ -4,13 +4,14 @@ import DynamicCards from "../../components/DynamicCards/DynamicCards";
 import TagManager from 'react-ga'
 
 const DynamicView = (props) => {
+    
     useEffect(()=>{
         TagManager.pageview(window.location.pathname + window.location.search);
     })
     if(props.Components === props.route){
         return (
             <div className='mb-5'>
-                <Container >
+                <Container className='bg-light complet'>
                 <h1 className='text-center'>{props.Title}</h1>
                     <Row>
                         <DynamicCards  articleList={props.articleList} title={props.Title} Components={props.Components}/>

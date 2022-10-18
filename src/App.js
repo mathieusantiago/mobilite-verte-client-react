@@ -12,7 +12,9 @@ import DynamicArticleView from "./views/DynamicArticle/DynamicArticleView";
 import ViewCardsSheetBrand from "./views/ViewCardsSheet/ViewCardsSheetBrand";
 import ViewCardsSheetEngine from "./views/ViewCardsSheet/ViewCardsSheetEngine";
 import ViewCardsSheetModel from "./views/ViewCardsSheet/ViewCardsSheetModel";
-import DynamicSheet from "./views/DynamicSheet/DynamicSheet";
+import DynamicSheetBrand from "./views/DynamicSheet/DynamicSheetBrand";
+import DynamicSheetModel from "./views/DynamicSheet/DynamicSheetModel";
+import DynamicSheetEngine from "./views/DynamicSheet/DynamicSheetEngine";
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
   const [route, setRoute] = useState([])
   const [articleList, setArticleList] = useState([])
   const [sheetBrand, setSheetBrand] = useState([])
+  const [sheetModel, setSheetModel] = useState([])
+  const [sheetEnergie, setSheetEnergie] = useState([])
 
 
   useEffect(() => {
@@ -32,17 +36,16 @@ function App() {
       },
     });
 
-
-    TagManager.pageview(window.location.pathname + window.location.search);
-
-    TagManager.event({
-      category: 'Promotion',
-      action: 'Displayed Promotional Widget',
-      label: 'Homepage Thing',
-    });
+    // TagManager.event({
+    //   category: 'Promotion',
+    //   action: 'Displayed Promotional Widget',
+    //   label: 'Homepage Thing',
+    // });
     getRoute();
     getArticle();
     getSheetBrand();
+    getSheetModel();
+    getSheetEngine();
   }, []);
 
   const getRoute = () => {
@@ -62,6 +65,20 @@ function App() {
     _get('get', 'api/fieldBrand', '', '', '')
     .then((res)=>{
       setSheetBrand(res.data)
+    })
+  }
+
+  const getSheetModel = ()=>{
+    _get('get', 'api/fieldModel', '', '', '')
+    .then((res)=>{
+      setSheetModel(res.data)
+    })
+  }
+
+  const getSheetEngine = ()=>{
+    _get('get', 'api/fieldEnergy', '', '', '')
+    .then((res)=>{
+      setSheetEnergie(res.data)
     })
   }
 
@@ -94,10 +111,16 @@ function App() {
               return <Route key={e._id} path={`/article/${e._id}`} element={<DynamicArticleView _id={e._id} article={e}/>} />  
         })}
         {sheetBrand.map((e)=>{
-            return <Route key={e._id} path={`/sheet/brand/${e._id}`} element={<DynamicSheet _id={e._id} datas={e}/>} />  
+            return <Route key={e._id} path={`/sheet/brand/${e._id}`} element={<DynamicSheetBrand _id={e._id} datas={e}/>} />  
+        })}
+        {sheetModel.map((e)=>{
+            return <Route key={e._id} path={`/sheet/model/${e._id}`} element={<DynamicSheetModel _id={e._id} datas={e}/>} />  
+        })}
+        {sheetEnergie.map((e)=>{
+            return <Route key={e._id} path={`/sheet/engine/${e._id}`} element={<DynamicSheetEngine _id={e._id} datas={e}/>} />  
         })}
       </Routes>
-      {/* <Footer route={route}></Footer> */}
+      <Footer route={route}></Footer>
     </div>
   );
 }

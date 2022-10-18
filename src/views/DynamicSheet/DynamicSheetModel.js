@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
-import SheetBrand from '../../components/CardsSheet/SheetBrand';
+import DynamicSheetsModel from '../../components/DynamicSheet/DynamicSheetsModel';
 import TagManager from 'react-ga'
 
-const ViewCardsSheetBrand = () => {
+const DynamicSheetBrand = (props) => {
+
     useEffect(()=>{
         TagManager.pageview(window.location.pathname + window.location.search);
     })
+
+
     return (
         <div>
-            <SheetBrand/>
+            <DynamicSheetsModel _id={props._id} datas={props.datas}/>
         </div>
     );
 };
 
-export default ViewCardsSheetBrand;
+export default DynamicSheetBrand;

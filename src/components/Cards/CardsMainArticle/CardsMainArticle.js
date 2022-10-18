@@ -14,8 +14,8 @@ const CardsMainArticle = (props) => {
       {props.dataArticle.status === "Publish" ? (
         <Col className='mainCards mb-5'>
           <Card className="mainCards" onClick={()=>{
-                              navigate(`/article/${props.dataArticle._id}`)
-                          }}>
+                  navigate(`/article/${props.dataArticle._id}`)
+              }}>
               <Card.Img
                 className="imgMainPreview"
                 variant="top"

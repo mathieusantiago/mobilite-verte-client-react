@@ -11,7 +11,6 @@ const SheetBrand = () => {
     useEffect(()=>{     
         _get('get', 'api/fieldBrand', '', '', '')
         .then((res)=>{
-            console.log(res)
             setBrand(res.data)
         })
     },[])
@@ -19,7 +18,7 @@ const SheetBrand = () => {
 
 
     return (
-        <Container>
+        <Container className='bg-light p-5 complet'>
             <Row>
                 {brand.map((res)=>{
                     return(
