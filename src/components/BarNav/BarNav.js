@@ -71,7 +71,7 @@ const BarNav = () => {
                 }
               })}
               <NavDropdown
-                title='Dossier'
+                title='Dossiers'
                 id="basic-nav-dropdown"
                 className="ms-4 me-4"
               >

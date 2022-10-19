@@ -6,8 +6,9 @@ import dompurify from '../../utils/dompurify'
 import electric from '../../assets/electric.png'
 import hybride from '../../assets/hybride.png'
 import hydrogene from '../../assets/hydrogene.jpg'
-
+import { useNavigate } from "react-router-dom";
 const DynamicSheets = (props) => {
+    const navigate = useNavigate();
     const [modelsCars, setModelsCars] = useState([])
 
     return (
@@ -24,6 +25,29 @@ const DynamicSheets = (props) => {
                 __html: dompurify(props.datas.content_field),
             }}>
             </div>
+            <br/>
+            <br/>
+            <h4 className="text-center">Models de véhicules</h4>
+            <br/>
+            <br/>
+            <Row>
+                {props.datas.model.map((res)=>{
+                    console.log("res",res._id)
+                    return (
+                        <Col className='d-flex justify-content-center'>
+                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>navigate(`/sheet/model/${res._id}`)}>
+                                <div className="border-bottom border-dark">
+                                    <p className='text-center h6 mt-1'>{res.model}</p>
+                                </div>
+                                <div className='text-center mt-3 mb-3'>
+                                    <img src={res.imgCar || 'https://img.icons8.com/ios-filled/50/000000/no-image-gallery.png'} width={178} alt="default logo"/>
+                                </div>
+                            </div>
+                        </Col>
+                    )
+                })}
+
+            </Row>
             
         </Container>
     )
