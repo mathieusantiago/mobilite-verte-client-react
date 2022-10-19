@@ -5,10 +5,15 @@ import dompurify from "../../utils/dompurify";
 import './DynamicArticle.css'
 const DynamicArticle = (props) => {
     const [author, setAuthor] = useState('')
+    const [tags, setTags] = useState([])
     useEffect(()=>{
         _get('get', 'api/user', '', props.article.editing_id, '')
         .then((e)=>{
             setAuthor(e.data.pseudo)
+        })
+        _get('get', 'api/tags', '', '', '')
+        .then((e)=>{
+            setTags(e.data)
         })
     },[])
 
@@ -48,7 +53,13 @@ const DynamicArticle = (props) => {
                         <div className="mt-2  rounded p-3 previewArticle">
                             <div>
                             {props.article.tags.map((e)=>{
-                                return <a href={`/${e}`}>{e}<br/></a> 
+                                let temp
+                                tags.filter((res)=>{
+                                    if(res.tags_name === e){
+                                        temp = res.link_field[0]
+                                    }
+                                })
+                                return <a href={`/${temp}`}>{e}<br/></a> 
                             })}
                             </div>
                             <br />
