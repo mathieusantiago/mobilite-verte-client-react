@@ -8,6 +8,7 @@ const _get = async (method, url, data, _id, subId) => {
     }`,
     data: data,
     withCredentials: true,
+    'Access-Control-Allow-Origin':'*'
   })
     .then((res) => {
       return res;
