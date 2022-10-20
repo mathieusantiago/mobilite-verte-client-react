@@ -8,7 +8,10 @@ const _get = async (method, url, data, _id, subId) => {
     }`,
     data: data,
     withCredentials: true,
-    'Access-Control-Allow-Origin':'*'
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*' // Could work and fix the previous problem, but not in all APIs
+    }
   })
     .then((res) => {
       return res;
