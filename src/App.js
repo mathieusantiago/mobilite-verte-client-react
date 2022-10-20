@@ -27,7 +27,7 @@ function App() {
 
 
   useEffect(() => {
-    TagManager.initialize('UA-245616455-1',{
+    TagManager.initialize(process.env.REACT_APP_PROPERTY_UA,{
       debug: false,
       titleCase: false,
       gaOptions: {
