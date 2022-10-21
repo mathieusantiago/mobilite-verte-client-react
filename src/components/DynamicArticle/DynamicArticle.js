@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Carousel, Col, Container, Row } from "react-bootstrap";
+import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import _get from "../../utils/dataUtils";
 import dompurify from "../../utils/dompurify";
+import { useNavigate } from "react-router-dom";
+
 import './DynamicArticle.css'
 const DynamicArticle = (props) => {
+    const navigate = useNavigate();
     const [author, setAuthor] = useState('')
     const [tags, setTags] = useState([])
     useEffect(()=>{
@@ -16,9 +19,9 @@ const DynamicArticle = (props) => {
             setTags(e.data)
         })
     },[])
-
+    
     const date = new Date(props.article.updatedAt);
-
+    
     const UncontrolledExample = () => {
         return (
         <Carousel>
@@ -59,7 +62,7 @@ const DynamicArticle = (props) => {
                                         temp = res.link_field[0]
                                     }
                                 })
-                                return <a href={`/${temp}`}>{e}<br/></a> 
+                                return  <Button variant="link" onClick={()=>navigate(`/${temp}`)}>{e}</Button> 
                             })}
                             </div>
                             <br />
