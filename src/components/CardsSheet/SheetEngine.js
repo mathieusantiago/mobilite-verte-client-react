@@ -15,7 +15,6 @@ const SheetEngine = () => {
     useEffect(()=>{     
         _get('get', 'api/fieldEnergy', '', '', '')
         .then((res)=>{
-            console.log(res.data)
             setEngergy(res.data)
         })
     },[])

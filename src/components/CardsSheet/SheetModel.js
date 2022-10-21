@@ -11,7 +11,6 @@ const SheetModel = () => {
     useEffect(()=>{     
         _get('get', 'api/fieldModel', '', '', '')
         .then((res)=>{
-            console.log(res.data)
             setBrand(res.data)
         })
     },[])

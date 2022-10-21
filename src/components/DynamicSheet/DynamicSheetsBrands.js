@@ -39,7 +39,6 @@ const DynamicSheets = (props) => {
             <br/>
             <Row>
                 {props.datas.model.map((res)=>{
-                    console.log("res",res._id)
                     return (
                         <Col className='d-flex justify-content-center'>
                             <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>navigate(`/sheet/model/${res._id}`)}>
