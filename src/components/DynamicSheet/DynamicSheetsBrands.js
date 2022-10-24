@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import _get from "../../utils/dataUtils";
+import _gTagsEvent from "../../utils/gTagsEvent";
 import dompurify from '../../utils/dompurify'
 import { useNavigate } from "react-router-dom";
 import './DynamicSheets.css'
@@ -41,7 +42,10 @@ const DynamicSheets = (props) => {
                 {props.datas.model.map((res)=>{
                     return (
                         <Col className='d-flex justify-content-center'>
-                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>navigate(`/sheet/model/${res._id}`)}>
+                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>{
+                                    _gTagsEvent('Models', `User open models ${res._id}`, 'User open models')
+                                    navigate(`/sheet/model/${res._id}`)
+                                }}>
                                 <div className="border-bottom border-dark">
                                     <p className='text-center h6 mt-1'>{res.model}</p>
                                 </div>
