@@ -5,6 +5,7 @@ import dompurify from "../../utils/dompurify";
 import { useNavigate } from "react-router-dom";
 
 import './DynamicArticle.css'
+import _gTagsEvent from "../../utils/gTagsEvent";
 const DynamicArticle = (props) => {
     const navigate = useNavigate();
     const [author, setAuthor] = useState('')
@@ -62,7 +63,10 @@ const DynamicArticle = (props) => {
                                         temp = res.link_field[0]
                                     }
                                 })
-                                return  <Button variant="link" onClick={()=>navigate(`/${temp}`)}>{e}</Button> 
+                                return  <Button variant="link" onClick={()=>{
+                                    _gTagsEvent('Tags', `User click on tags ${temp}`, 'User click tags')
+                                    navigate(`/${temp}`)
+                                }}>{e}</Button> 
                             })}
                             </div>
                             <br />

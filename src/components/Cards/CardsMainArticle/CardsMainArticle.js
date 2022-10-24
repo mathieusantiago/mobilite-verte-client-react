@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import _strNoAccent from "../../../utils/strNoAccent";
 import "./CardsMainArticle.css";
 import { useNavigate } from "react-router-dom";
+import _gTagsEvent from "../../../utils/gTagsEvent";
 
 const CardsMainArticle = (props) => {
+
   const navigate = useNavigate();
   const date = new Date(props.dataArticle.updatedAt);
   return (
@@ -14,6 +16,7 @@ const CardsMainArticle = (props) => {
       {props.dataArticle.status === "Publish" ? (
         <Col className='mainCards mb-5'>
           <Card className="mainCards" onClick={()=>{
+                  _gTagsEvent('Articles', `User open article ${props.dataArticle._id}`, 'User open article')
                   navigate(`/article/${props.dataArticle._id}`)
               }}>
               <Card.Img

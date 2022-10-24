@@ -36,11 +36,6 @@ function App() {
       },
     });
 
-    // TagManager.event({
-    //   category: 'Promotion',
-    //   action: 'Displayed Promotional Widget',
-    //   label: 'Homepage Thing',
-    // });
     getRoute();
     getArticle();
     getSheetBrand();

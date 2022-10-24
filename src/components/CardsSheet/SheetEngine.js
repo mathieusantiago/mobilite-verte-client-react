@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import electric from '../../assets/electric.png'
 import hybride from '../../assets/hybride.png'
 import hydrogene from '../../assets/hydrogene.jpg'
+import _gTagsEvent from '../../utils/gTagsEvent';
 
 const SheetEngine = () => {
     const navigate = useNavigate();
@@ -27,7 +28,10 @@ const SheetEngine = () => {
                 {engergy.map((res)=>{
                     return(
                         <Col className='d-flex justify-content-center'>
-                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>navigate(`/sheet/engine/${res._id}`)}>
+                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>{
+                                _gTagsEvent('Engine', `User open engine ${res._id}`, 'User open engine')
+                                navigate(`/sheet/engine/${res._id}`)
+                                }}>
                                 <div className="border-bottom border-dark">
                                     <p className='text-center h6 mt-1'>{res.chapo_field}</p>
                                 </div>

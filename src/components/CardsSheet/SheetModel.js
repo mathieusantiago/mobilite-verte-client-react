@@ -3,6 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import _get from '../../utils/dataUtils';
 import './index.css'
 import { useNavigate } from "react-router-dom";
+import _gTagsEvent from '../../utils/gTagsEvent';
 const SheetModel = () => {
     const navigate = useNavigate();
     const [brand, setBrand] = useState([])
@@ -22,7 +23,10 @@ const SheetModel = () => {
                 {brand.map((res)=>{
                     return(
                         <Col className='d-flex justify-content-center'>
-                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>navigate(`/sheet/model/${res._id}`)}>
+                            <div className='cardBrand border border-dark rounded bg-light mb-4' onClick={()=>{
+                                _gTagsEvent('Models', `User open models ${res._id}`, 'User open models')
+                                navigate(`/sheet/model/${res._id}`)
+                                }}>
                                 <div className="border-bottom border-dark">
                                     <p className='text-center h6 mt-1'>{res.filed_name}</p>
                                 </div>
