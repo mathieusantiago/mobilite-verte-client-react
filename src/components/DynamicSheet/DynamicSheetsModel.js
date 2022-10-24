@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import {  Col, Container, Row } from "react-bootstrap";
 import dompurify from '../../utils/dompurify'
 import './DynamicSheets.css'
 const DynamicSheets = (props) => {
-    const [modelsCars, setModelsCars] = useState([])
 
     return (
         <Container className='bg-light complet'>
@@ -23,7 +22,6 @@ const DynamicSheets = (props) => {
                 <span >
 
                 </span>
-           
             </span>
             
         </Container>

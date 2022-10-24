@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import _strNoAccent from "../../utils/strNoAccent";
 import { useNavigate } from "react-router-dom";

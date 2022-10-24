@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import CardsMainArticle from '../../components/Cards/CardsMainArticle/CardsMainArticle';
 import './Home.css'
 import TagManager from 'react-ga'

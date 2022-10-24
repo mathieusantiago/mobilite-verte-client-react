@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import _get from "../../utils/dataUtils";
 import dompurify from '../../utils/dompurify'
 import electric from '../../assets/electric.png'
 import hybride from '../../assets/hybride.png'
