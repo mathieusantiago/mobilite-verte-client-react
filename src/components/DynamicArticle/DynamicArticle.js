@@ -19,7 +19,7 @@ const DynamicArticle = (props) => {
         .then((e)=>{
             setTags(e.data)
         })
-    },[])
+    },[props.article.editing_id])
     
     const date = new Date(props.article.updatedAt);
     
@@ -60,7 +60,7 @@ const DynamicArticle = (props) => {
                                 let temp
                                 tags.filter((res)=>{
                                     if(res.tags_name === e){
-                                        temp = res.link_field[0]
+                                        return temp = res.link_field[0]
                                     }else{
                                         return null
                                     }

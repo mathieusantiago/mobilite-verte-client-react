@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import _get from "../../utils/dataUtils";
 import _gTagsEvent from "../../utils/gTagsEvent";
 import dompurify from '../../utils/dompurify'
 import { useNavigate } from "react-router-dom";
@@ -8,19 +7,6 @@ import './DynamicSheets.css'
 const DynamicSheets = (props) => {
     const navigate = useNavigate();
 
-    const [modelsCars, setModelsCars] = useState([])
-
-    useEffect(() => {
-        getModelsCars()
-    },[])
-    
-
-    const getModelsCars = () => {
-        _get('get', 'api/fieldModel', '', '', '')
-        .then((res)=>{
-            setModelsCars(res.data)
-        })
-    }
     return (
         <Container className='bg-light complet'>
             <span>
