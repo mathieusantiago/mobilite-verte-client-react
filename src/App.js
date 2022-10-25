@@ -15,7 +15,8 @@ import ViewCardsSheetModel from "./views/ViewCardsSheet/ViewCardsSheetModel";
 import DynamicSheetBrand from "./views/DynamicSheet/DynamicSheetBrand";
 import DynamicSheetModel from "./views/DynamicSheet/DynamicSheetModel";
 import DynamicSheetEngine from "./views/DynamicSheet/DynamicSheetEngine";
-
+import PersonalData from "./components/PersonalData/PersonalData";
+import LegalNotices from "./components/LegalNotices/LegalNotices";
 
 function App() {
 
@@ -88,6 +89,8 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<Home articleList={articleList}/>} />
+        <Route path="/donnees-personnelles" element={<PersonalData/>} />
+        <Route path="/mentions-legales" element={<LegalNotices/>} />
         <Route path="/cards/sheet/brand" element={<ViewCardsSheetBrand/>} />
         <Route path="/cards/sheet/model" element={<ViewCardsSheetModel/>} />
         <Route path="/cards/sheet/engine" element={<ViewCardsSheetEngine/>} />

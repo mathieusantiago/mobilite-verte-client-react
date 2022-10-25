@@ -61,6 +61,8 @@ const DynamicArticle = (props) => {
                                 tags.filter((res)=>{
                                     if(res.tags_name === e){
                                         temp = res.link_field[0]
+                                    }else{
+                                        return null
                                     }
                                 })
                                 return  <Button variant="link" onClick={()=>{
