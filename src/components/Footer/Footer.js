@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div className='footer mt-5 bg-light'>
             <Container>
-                <Row>
+                <Row className="text-center">
                     <Col>
                         <div>
                             <Button variant="link" onClick={()=>navigate("/donnees-personnelles")}>Donnees personnelles</Button>
@@ -16,12 +16,12 @@ const Footer = () => {
                     </Col>
                     <Col>
                         <div>
-                            <Button variant="link" onClick={()=>navigate("/mentions-legales")}>Mentions legales</Button>
+                            <Button variant="secondary" href="http://www.santiagodevweb.com/" target="_blank">&#169; 2022-2023 Développer par Ambrela-Web</Button>
                         </div>
                     </Col>
                     <Col>
                         <div>
-                            coucou
+                            <Button variant="link" onClick={()=>navigate("/mentions-legales")}>Mentions legales</Button>
                         </div>
                     </Col>
                 </Row>

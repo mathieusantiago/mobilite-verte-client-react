@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import './DynamicArticle.css'
 import _gTagsEvent from "../../utils/gTagsEvent";
+import DynamicHelmet from "../DynamicHelmet/DynamicHelmet";
 const DynamicArticle = (props) => {
     const navigate = useNavigate();
     const [author, setAuthor] = useState('')
@@ -51,6 +52,15 @@ const DynamicArticle = (props) => {
 
     return (
         <>
+            <DynamicHelmet  title={props.article.categories}
+                description={props.article.contentSeo}   
+                url={window.location.pathname + window.location.search}
+                ogDescription={props.article.contentSeo}
+                ogTitle={props.article.tilteSeo}
+                ogType="Article"
+                ogImage={props.article.secondaryPicture}>
+            </DynamicHelmet>
+
             <Container className="bg-light compet">
                 <Row>
                     <Col>
