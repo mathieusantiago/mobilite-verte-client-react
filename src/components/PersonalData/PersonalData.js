@@ -122,7 +122,7 @@ const PersonalData = () => {
                         <h2>C. Vos choix concernant les cookies</h2>
                         <p>
                         {" "}
-                        Upside Down Media participe et est conforme à l'ensemble des
+                        Mobilité verte participe et est conforme à l'ensemble des
                         Spécifications et Politiques du Transparency &amp; Consent
                         Framework de l'IAB Europe. Elle utilise la Consent Management
                         Platform n°92.
