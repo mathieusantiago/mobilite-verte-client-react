@@ -11,17 +11,17 @@ const Footer = () => {
                 <Row className="text-center">
                     <Col>
                         <div>
-                            <Button variant="link" onClick={()=>navigate("/donnees-personnelles")}>Donnees personnelles</Button>
+                            <Button variant="link" onClick={()=>navigate("/donnees-personnelles")}>Données personnelles</Button>
                         </div>
                     </Col>
                     <Col>
                         <div>
-                            <Button variant="secondary" href="http://www.santiagodevweb.com/" target="_blank">&#169; 2022-2023 Développer par Ambrela-Web</Button>
+                            <Button variant="secondary" href="http://www.santiagodevweb.com/" target="_blank">&#169; 2022-2023 Développé par Ambrela-Web</Button>
                         </div>
                     </Col>
                     <Col>
                         <div>
-                            <Button variant="link" onClick={()=>navigate("/mentions-legales")}>Mentions legales</Button>
+                            <Button variant="link" onClick={()=>navigate("/mentions-legales")}>Mentions légales</Button>
                         </div>
                     </Col>
                 </Row>

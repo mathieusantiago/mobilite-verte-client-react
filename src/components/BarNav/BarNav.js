@@ -82,12 +82,12 @@ const BarNav = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Link className='barNav-link' to="/cards/sheet/model">
-                    Fiches models
+                    Fiches modèles
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Link className='barNav-link' to="/cards/sheet/engine">
-                    Fiches energies
+                    Fiches énergies
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>

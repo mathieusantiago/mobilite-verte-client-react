@@ -128,7 +128,7 @@ const DynamicArticle = (props) => {
                             </div>
                             <div>
                                 <small className="text-muted ">
-                                Publillé le :{" "}
+                                Publié le :{" "}
                                 {date.toLocaleDateString("fr-FR").substring(0, 10)}
                                 </small>
                             </div>

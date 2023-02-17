@@ -43,7 +43,7 @@ const DynamicCards = (props) => {
                             </Card.Body>
                             <Card.Footer>
                             <small className="text-muted">
-                                Publillé le :
+                                Publié le :
                                 {date.toLocaleDateString("fr-FR").substring(0, 10)}
                             </small>
                             </Card.Footer>

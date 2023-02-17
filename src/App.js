@@ -26,7 +26,6 @@ function App() {
   const [sheetModel, setSheetModel] = useState([])
   const [sheetEnergie, setSheetEnergie] = useState([])
 
-
   useEffect(() => {
     TagManager.initialize(process.env.REACT_APP_PROPERTY_UA,{
       debug: false,

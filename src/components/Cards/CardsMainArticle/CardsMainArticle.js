@@ -30,18 +30,16 @@ const CardsMainArticle = (props) => {
               />
               <Card.Body>
                 <Card.Text>
-                  
                     <Link to={_strNoAccent(props.dataArticle.categories).split(' ').join('_').toLowerCase()}>
                       {props.dataArticle.categories}
                     </Link>
-
                 </Card.Text>
                 <Card.Text>{props.dataArticle.article_title}</Card.Text>
                 <Card.Text>{props.dataArticle.contentSeo}</Card.Text>
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">
-                  Publillé le :
+                  Publié le :
                   {date.toLocaleDateString("fr-FR").substring(0, 10)}
                 </small>
               </Card.Footer>
